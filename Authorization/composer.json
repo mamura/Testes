@@ -1,11 +1,11 @@
 {
-    "name": "connecta/application-admin",
+    "name": "connecta/application-authorization",
     "type": "library",
     "version": "1.0.0",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Connecta\\ApplicationAdmin\\": "src/"
+            "Connecta\\ApplicationAuthorization\\": "src/"
         }
     },
     "authors": [
@@ -16,13 +16,12 @@
     ],
     "require": {
         "php": "8.3.*",
-        "connecta/domain-commission-type": "1.0.*",
-        "connecta/domain-origin": "1.0.*"
+        "connecta/domain-authorization": "1.0.*",
+        "connecta/domain-user": "1.0.*"
     },
     "require-dev": {
         "pestphp/pest": "^3.7",
-        "mockery/mockery": "^1.6",
-        "laravel/framework": "11.0"
+        "mockery/mockery": "^1.6"
     },
     "repositories": [
         {
@@ -33,15 +32,15 @@
             }
         }
     ],
-    "config": {
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
-    },
     "scripts": {
       "coverage": [
         "path=${path:-$(pwd)/coverage} && ./vendor/bin/pest --compact --coverage-php \"$path/coverage.cov\" ",
         "path=${path:-$(pwd)/coverage} && ./vendor/bin/pest --compact --coverage-clover \"$path/coverage.xml\" > /dev/null 2>&1"
       ]
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }
